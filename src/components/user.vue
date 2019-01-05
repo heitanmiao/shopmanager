@@ -2,12 +2,7 @@
 
   <el-card class="box-card">
     <!-- 面包屑 -->
-    <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
-
+   <my-bread level1="角色管理" level2="用户列表"></my-bread>
     <!-- 搜索框 -->
     <el-row class="searchArea">
       <el-col :span="24">
@@ -274,7 +269,7 @@ export default {
     async showRole (user) {
       this.dialogFormVisibleRole = true
       const res = await this.$http.get(`roles`)
-      const {data, meta: {msg, status}} = res.data
+      const {data} = res.data
       this.roleData = data
       this.currUserName = user.username
       const res2 = await this.$http.get(`users/${user.id}`)
