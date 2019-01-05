@@ -22,7 +22,7 @@
           :router 开启路由模式
           开启后, 设置el-menu-item的index值 为路由标识
         -->
-        <el-menu default-active="2-1" class="menu" :unique-opened="true" :router="true">
+        <el-menu default-active="2-1" class="menu" router :unique-opened="true">
         <!-- 用户管理-->
           <el-submenu index="1">
             <template slot="title">
@@ -50,25 +50,25 @@
           </el-menu-item>
         </el-submenu>
         <!-- 商品管理-->
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>商品管理</span>
-        </template>
-                  <el-menu-item index="3-1">
-              <i class="el-icon-menu"></i>
-            商品列表
-          </el-menu-item>
-            <el-menu-item index="3-1">
-              <i class="el-icon-view"></i>
-            分类参数
-          </el-menu-item>
-           <el-menu-item index="3-1">
-              <i class="el-icon-view"></i>
-            商品分类
-          </el-menu-item>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>商品管理</span>
+          </template>
+                    <el-menu-item index="3-1">
+                <i class="el-icon-menu"></i>
+              商品列表
+            </el-menu-item>
+              <el-menu-item index="3-1">
+                <i class="el-icon-view"></i>
+              分类参数
+            </el-menu-item>
+              <el-menu-item index="3-1">
+                <i class="el-icon-view"></i>
+              商品分类
+            </el-menu-item>
         </el-submenu>
-        <!--订单管理-->
+      <!--订单管理-->
         <el-submenu index="4">
             <template slot="title">
                 <i class="el-icon-location"></i>
@@ -92,7 +92,9 @@
         </el-submenu>
         </el-menu>
       </el-aside>
-      <el-main class="main">Main</el-main>
+      <el-main class="main">
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -131,7 +133,8 @@ export default {
 
 .main {
   background-color: #e9eef3;
-  height: 100%;
+  /* 为什么加100%会变成只有内容撑起来的高度 */
+  /* height: 100%; */
 }
 .header .middle{
   line-height: 60px;
@@ -145,4 +148,5 @@ export default {
 .aside .menu{
   height: 100%;
 }
+
 </style>
